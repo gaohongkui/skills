@@ -1,0 +1,22 @@
+{
+  "name": "gaohongkui-skills",
+  "owner": {
+    "name": "gaohongkui",
+    "url": "https://github.com/gaohongkui"
+  },
+  "metadata": {
+    "description": "Public agent skills: docs, code, data, design, ops and meta workflows.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "meta-skills",
+      "source": "./",
+      "description": "Meta skills for AI agents.",
+      "strict": false,
+      "skills": [
+        "./skills/handoff-writer"
+      ]
+    }
+  ]
+}

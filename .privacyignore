@@ -1,0 +1,21 @@
+# .privacyignore — allowlist for scripts/check-sensitive.mjs
+#
+# Goal: suppress FALSE POSITIVES only. Never weaken a rule and never paste the
+# offending string here — allowlist by RULE + PATH, which reveals nothing.
+#
+# Format (one per line, whitespace separated, "#" starts a comment):
+#
+#   rule=<rule-id>  path=<glob>     # this rule, this file
+#   path=<glob>                     # every rule, this file
+#
+# Rule ids: private-key aws-key github-token github-pat openai-key slack-token
+#           google-api-key jwt db-conn home-path windows-home email cn-mobile
+#           cn-id-card private-ip internal-host signed-url forbidden-file
+#
+# Examples:
+#
+#   rule=home-path   path=docs/examples/**      # illustrative paths in documentation
+#   rule=email       path=skills/*/evals/**     # synthetic fixtures
+#
+# Add patterns for your own environment (internal domains, codenames) in
+# .privacy.local.json — it is gitignored, so those patterns never go public.

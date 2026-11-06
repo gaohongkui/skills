@@ -1,0 +1,31 @@
+{
+  "$schema": "./skills.schema.json",
+  "repository": "gaohongkui/skills",
+  "homepage": "https://github.com/gaohongkui/skills",
+  "install": "npx skills add gaohongkui/skills",
+  "skillCount": 1,
+  "skills": [
+    {
+      "name": "handoff-writer",
+      "description": "Turn a long working session into a HANDOFF.md that a fresh agent can resume from without re-reading the transcript. Use when the user says \"write a handoff\", \"hand off this session\", \"summarize context for a new chat\", \"wrap up\", or when the context window is nearly full and the work is unfinished.",
+      "version": "0.1.0",
+      "category": "meta",
+      "tags": [
+        "handoff",
+        "context",
+        "session",
+        "resume"
+      ],
+      "license": "MIT",
+      "compatibility": "Requires Node.js 18+ for the optional scaffold script; the rest is plain Markdown.",
+      "path": "skills/handoff-writer",
+      "skillFile": "skills/handoff-writer/SKILL.md",
+      "raw": "https://raw.githubusercontent.com/gaohongkui/skills/main/skills/handoff-writer/SKILL.md",
+      "files": [
+        "SKILL.md",
+        "references/handoff-template.md",
+        "scripts/new-handoff.mjs"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# gaohongkui/skills
+
+> Public agent skills published under the Agent Skills open standard. Each entry links to a
+> self-contained SKILL.md — read it directly, no clone required. Use `npx skills add gaohongkui/skills` to install all of them.
+
+Machine-readable index: https://raw.githubusercontent.com/gaohongkui/skills/main/index/skills.json
+Repository: https://github.com/gaohongkui/skills
+
+## Meta
+
+- [handoff-writer](https://raw.githubusercontent.com/gaohongkui/skills/main/skills/handoff-writer/SKILL.md): Turn a long working session into a HANDOFF.md that a fresh agent can resume from without re-reading the transcript. Use when the user says "write a handoff", "hand off this session", "summarize context for a new chat", "wrap up", or when the context window is nearly full and the work is unfinished.

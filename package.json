@@ -1,0 +1,23 @@
+{
+  "name": "gaohongkui-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public agent skills, published under the Agent Skills open standard.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "build": "node scripts/build-index.mjs",
+    "check": "node scripts/build-index.mjs --check",
+    "privacy": "node scripts/check-sensitive.mjs",
+    "ci": "npm run validate && npm run check && npm run privacy",
+    "link": "node scripts/link.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaohongkui/skills.git"
+  }
+}

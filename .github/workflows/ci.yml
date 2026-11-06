@@ -1,0 +1,37 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate skills
+        run: node scripts/validate.mjs
+
+      - name: Check generated files are up to date
+        run: node scripts/build-index.mjs --check
+
+      - name: Privacy scan
+        run: node scripts/check-sensitive.mjs
+
+      - name: Report workspace leaks
+        if: failure()
+        run: |
+          echo "::error::A gate failed. Do not merge until it passes."
+          echo "Local reproduction: npm run ci"

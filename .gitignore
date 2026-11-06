@@ -1,0 +1,23 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Dependencies (this repo has none by design, but stay honest)
+node_modules/
+
+# Local secrets and machine-specific config — never commit these
+.env
+.env.*
+!.env.example
+*.local.json
+.privacy.local.json
+*.pem
+*.key
+*.p12
+
+# Local scratch
+tmp/
+.work/
