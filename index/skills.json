@@ -29,25 +29,22 @@
     },
     {
       "name": "skill-rsi",
-      "description": "把一个只会「说」的 skill 改造成有工作地图、有真实检查、能从反馈里持续改进的工作系统。 当用户要求改造、加固、重构或「自迭代」某个 SKILL.md，或抱怨某个 skill 不稳定、 总是漏步骤、产出不一致时使用。 Use when asked to improve, harden, refactor, or self-iterate an existing SKILL.md.",
-      "version": "0.1.0",
+      "description": "检查并改造现有 Skill，让它从一份依赖 AI 理解和执行的操作说明，逐步变成结构清晰、 工具可靠、结果可验证、能根据反馈持续改进的工作系统。当用户要求改造、加固某个 Skill， 或说某个 skill 不稳定、总漏步骤时使用。 Use when asked to review and rework an existing Skill into a more reliable one.",
+      "version": "0.2.0",
       "category": "meta",
       "tags": [
         "skill",
         "refactor",
         "verification",
-        "tooling",
-        "feedback-loop"
+        "tooling"
       ],
       "license": "MIT",
-      "compatibility": "只需要读写文件，无运行时依赖；检查命令用 skill 本身已有的环境执行。",
+      "compatibility": "只需要读写 Skill 文件，不依赖额外运行时。",
       "path": "skills/skill-rsi",
       "skillFile": "skills/skill-rsi/SKILL.md",
       "raw": "https://raw.githubusercontent.com/gaohongkui/skills/main/skills/skill-rsi/SKILL.md",
       "files": [
-        "SKILL.md",
-        "references/diagnosis.md",
-        "references/report-template.md"
+        "SKILL.md"
       ]
     }
   ]

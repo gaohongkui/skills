@@ -9,4 +9,4 @@ Repository: https://github.com/gaohongkui/skills
 ## Meta
 
 - [handoff-writer](https://raw.githubusercontent.com/gaohongkui/skills/main/skills/handoff-writer/SKILL.md): 把一段长会话整理成 HANDOFF.md，让新会话不读历史就能接手。 当用户说「写个交接」「hand off」「总结上下文给新会话」「收尾」， 或上下文快满了而工作还没做完时使用。 Use when the user asks to write a handoff, wrap up, or summarize context for a new session.
-- [skill-rsi](https://raw.githubusercontent.com/gaohongkui/skills/main/skills/skill-rsi/SKILL.md): 把一个只会「说」的 skill 改造成有工作地图、有真实检查、能从反馈里持续改进的工作系统。 当用户要求改造、加固、重构或「自迭代」某个 SKILL.md，或抱怨某个 skill 不稳定、 总是漏步骤、产出不一致时使用。 Use when asked to improve, harden, refactor, or self-iterate an existing SKILL.md.
+- [skill-rsi](https://raw.githubusercontent.com/gaohongkui/skills/main/skills/skill-rsi/SKILL.md): 检查并改造现有 Skill，让它从一份依赖 AI 理解和执行的操作说明，逐步变成结构清晰、 工具可靠、结果可验证、能根据反馈持续改进的工作系统。当用户要求改造、加固某个 Skill， 或说某个 skill 不稳定、总漏步骤时使用。 Use when asked to review and rework an existing Skill into a more reliable one.

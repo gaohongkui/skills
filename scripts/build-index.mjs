@@ -115,8 +115,9 @@ function collect() {
 }
 
 function firstSentence(text) {
-  // ASCII and CJK sentence terminators; Chinese text ends on 。！？
-  const match = text.match(/^(.+?[.!?。！？])(?:\s|$)/);
+  // ASCII terminators need trailing whitespace; CJK ones do not — 「。当用户…」is one
+  // sentence followed immediately by the next, with no space in between.
+  const match = text.match(/^(.+?(?:[.!?](?=\s|$)|[。！？]))/);
   const sentence = (match ? match[1] : text).trim();
   return sentence.length > 160 ? `${sentence.slice(0, 157).trimEnd()}…` : sentence;
 }

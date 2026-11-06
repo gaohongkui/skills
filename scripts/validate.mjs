@@ -130,7 +130,7 @@ function validateSkill(dirName) {
   }
   if (data['allowed-tools']) {
     const tools = String(data['allowed-tools']);
-    if (/\bBash\b/.test(tools) && !/(scripts?\/|node |python |npm |npx |bash |shell)/i.test(parsed.body)) {
+    if (/\bBash\b/.test(tools) && !/(scripts?\/|node |python |npm |npx |bash |shell|脚本|命令|CLI)/i.test(parsed.body)) {
       warn(id, 'grants Bash but the body never explains what it runs');
     }
   }
