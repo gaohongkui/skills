@@ -85,6 +85,7 @@ Free-form map. Conventional keys used here:
 | `version` | semver string | Bumped on every behavioural change |
 | `category` | string | One of the categories above |
 | `tags` | string[] | 2–5 lowercase search terms |
+| `summary-zh` | string | Optional one-line Chinese summary, used in the `README.zh-CN.md` table. Omit it and the English first sentence is used. |
 
 Client-specific extensions go here too, namespaced: `metadata.cc-argument-hint`.
 

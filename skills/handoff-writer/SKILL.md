@@ -11,6 +11,7 @@ metadata:
   version: 0.1.0
   category: meta
   tags: [handoff, context, session, resume]
+  summary-zh: 把一段长会话整理成 HANDOFF.md，让新会话不读历史也能接手。
 allowed-tools: Read Write Bash
 ---
 

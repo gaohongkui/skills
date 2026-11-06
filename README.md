@@ -1,5 +1,7 @@
 # skills
 
+**English** | [中文](./README.zh-CN.md)
+
 [![skills.sh](https://skills.sh/b/gaohongkui/skills)](https://skills.sh/gaohongkui/skills)
 [![CI](https://github.com/gaohongkui/skills/actions/workflows/ci.yml/badge.svg)](https://github.com/gaohongkui/skills/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
@@ -56,11 +58,12 @@ skills/<name>/SKILL.md      ← the only place a skill is written
         │
         │  npm run build
         ▼
-index/skills.json · index/llms.txt · README table · .claude-plugin/marketplace.json
+index/skills.json · index/llms.txt · README tables · .claude-plugin/marketplace.json
 ```
 
 The generated files carry a banner and are checked in CI (`npm run check`) — a stale
-catalog fails the build rather than silently misleading a reader.
+catalog fails the build rather than silently misleading a reader. The README table is
+generated into **both** language variants from the same source, so they cannot diverge.
 
 <details>
 <summary>Repository layout</summary>
@@ -69,6 +72,7 @@ catalog fails the build rather than silently misleading a reader.
 | --- | --- |
 | `AGENTS.md` | The single source of instructions for agents working *on this repo* |
 | `CLAUDE.md` | Points at `AGENTS.md` |
+| `README.md` / `README.zh-CN.md` | English (default) and Chinese entry points |
 | `skills/` | Canonical skills |
 | `index/` | Generated catalog (`skills.json`, `llms.txt`) |
 | `.claude-plugin/` | Generated Claude Code marketplace manifest (one plugin per category) |
@@ -110,12 +114,7 @@ compromised — rewriting history removes the bytes from your remote, not from m
 forks, or caches. Full procedure in the
 [checklist](./docs/publishing-checklist.md#if-something-sensitive-already-slipped-through).
 
-> **中文摘要**：本仓库公开分发。**每次 push / 发版前**必须确认 skill 中不含个人隐私
-> （真实姓名、家庭住址、私人邮箱/手机号/身份证、同事与客户姓名、聊天截图）、敏感信息
-> （密钥、token、密码、私钥、`.env`、签名 URL、连接串）、内部信息（内网域名与 wiki
-> 链接、项目代号、未公开路线图与指标）、以及机器指纹（家目录绝对路径、内网 IP、主机名）。
-> 先跑 `npm run privacy`，再逐行读 `git diff --cached` —— 扫描器识别不了“这个词只有我们公司懂”。
-> 完整清单与泄露后的处置步骤见 [`docs/publishing-checklist.md`](./docs/publishing-checklist.md)。
+> 中文读者：[README.zh-CN.md](./README.zh-CN.md) 是完整中文版，含同一份发布前检查清单。
 
 ## Contributing
 

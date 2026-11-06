@@ -151,6 +151,9 @@ function validateSkill(dirName) {
     } else if (meta.tags.length > 8) {
       warn(id, `${meta.tags.length} tags — keep it to 2-5 useful ones`);
     }
+    if (meta['summary-zh'] && String(meta['summary-zh']).length > 200) {
+      warn(id, 'metadata.summary-zh is long — it has to fit one README table cell');
+    }
   }
 
   // --- body -------------------------------------------------------------

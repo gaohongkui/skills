@@ -58,7 +58,7 @@ right result, and a user can tell from `description` alone whether it applies.
 ## 4. Regenerate and verify
 
 ```bash
-npm run build     # rewrites index/, README table, marketplace.json
+npm run build     # rewrites index/, both README tables, marketplace.json
 npm run ci        # validate + check + privacy
 ```
 
@@ -99,4 +99,4 @@ makes reverts surgical.
 - [ ] Scripts run on a stock runtime and make no network calls
 - [ ] `metadata.version`, `category`, `tags` set
 - [ ] **Privacy gate reviewed** — no secrets, no personal data, no internal-only material
-- [ ] Generated files committed (`index/`, README table, `marketplace.json`)
+- [ ] Generated files committed (`index/`, both README tables, `marketplace.json`)

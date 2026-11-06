@@ -15,7 +15,7 @@ A public collection of agent skills, published under the
 ## Invariants (do not break)
 
 1. **One canonical source.** A skill exists exactly once, at `skills/<name>/SKILL.md`
-   plus its resources. Every other listing — `index/`, the README table,
+   plus its resources. Every other listing — `index/`, the README tables,
    `.claude-plugin/marketplace.json` — is **generated** by `scripts/build-index.mjs`.
    Never hand-edit a generated file; edit the skill and re-run the build.
 2. **Only six frontmatter keys.** `name`, `description`, `license`, `compatibility`,
@@ -28,6 +28,10 @@ A public collection of agent skills, published under the
    copies of the same skill.
 5. **Public by default.** Anything committed here is world-readable forever.
    See the gate below.
+6. **Two READMEs, one generator.** `README.md` is English (the default GitHub renders) and
+   `README.zh-CN.md` is Chinese. Each opens with a `English | 中文` switch. The skills
+   table is generated into both from the same data; prose changes must land in both, or
+   the two pages start telling different stories.
 
 ## Layout
 
@@ -37,9 +41,9 @@ A public collection of agent skills, published under the
 | `skills/<name>/{scripts,references,assets,evals}/` | Optional resources (progressive disclosure) | humans |
 | `index/skills.json` | Machine-readable catalog | `npm run build` |
 | `index/llms.txt` | Agent-friendly catalog | `npm run build` |
-| `README.md` table | Human catalog | `npm run build` |
+| `README.md` table | Human catalog — English (default) | `npm run build` |
+| `README.zh-CN.md` table | Human catalog — Chinese | `npm run build` |
 | `.claude-plugin/marketplace.json` | Claude Code plugin marketplace | `npm run build` |
-| `.claude-plugin/plugin.json` | Plugin identity | humans |
 | `docs/taxonomy.md` | Naming + category rules | humans |
 | `docs/adding-a-skill.md` | Contribution flow | humans |
 | `docs/publishing-checklist.md` | **Privacy / sensitive-data gate** | humans |
@@ -48,7 +52,7 @@ A public collection of agent skills, published under the
 
 ```bash
 npm run validate    # frontmatter, naming, links, size limits
-npm run build       # regenerate index/, README table, marketplace.json
+npm run build       # regenerate index/, both README tables, marketplace.json
 npm run check       # verify generated files are up to date (CI mode)
 npm run privacy     # scan for secrets, PII, internal-only references
 npm run ci          # validate + check + privacy (same as CI)
