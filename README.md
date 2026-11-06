@@ -35,6 +35,7 @@ into each client's own directory. No clone, no build step required to consume th
 | Skill | What it does | Category | Version |
 | --- | --- | --- | --- |
 | [`handoff-writer`](skills/handoff-writer/SKILL.md) | Turn a long working session into a HANDOFF.md that a fresh agent can resume from without re-reading the transcript. | `meta` | 0.1.0 |
+| [`skill-evolve`](skills/skill-evolve/SKILL.md) | Turn a prompt-only skill into a work system: a task map, real checks instead of prose promises, and a feedback loop that survives the next correction. | `meta` | 0.1.0 |
 
 Claude Code users can install the same skills as a managed plugin:
 

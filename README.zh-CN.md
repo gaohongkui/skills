@@ -34,6 +34,7 @@ skill 会落在 `.agents/skills/`（项目级）或 `~/.agents/skills/`（全局
 | Skill | 做什么 | 分类 | 版本 |
 | --- | --- | --- | --- |
 | [`handoff-writer`](skills/handoff-writer/SKILL.md) | 把一段长会话整理成 HANDOFF.md，让新会话不读历史也能接手。 | `meta` | 0.1.0 |
+| [`skill-evolve`](skills/skill-evolve/SKILL.md) | 把只会「说」的 skill 改造成有工作地图、有检查、能持续改进的工作系统。 | `meta` | 0.1.0 |
 
 Claude Code 用户可以把同一批 skill 装成托管插件：
 

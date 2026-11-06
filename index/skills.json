@@ -3,7 +3,7 @@
   "repository": "gaohongkui/skills",
   "homepage": "https://github.com/gaohongkui/skills",
   "install": "npx skills add gaohongkui/skills",
-  "skillCount": 1,
+  "skillCount": 2,
   "skills": [
     {
       "name": "handoff-writer",
@@ -25,6 +25,29 @@
         "SKILL.md",
         "references/handoff-template.md",
         "scripts/new-handoff.mjs"
+      ]
+    },
+    {
+      "name": "skill-evolve",
+      "description": "Turn a prompt-only skill into a work system: a task map, real checks instead of prose promises, and a feedback loop that survives the next correction. Use when the user asks to improve, harden, refactor, or \"self-iterate\" an existing SKILL.md, says a skill is unreliable or keeps missing steps, or wants tooling, verification, or regression samples added to a skill.",
+      "version": "0.1.0",
+      "category": "meta",
+      "tags": [
+        "skill",
+        "refactor",
+        "verification",
+        "tooling",
+        "feedback-loop"
+      ],
+      "license": "MIT",
+      "compatibility": "Works on plain files. Needs no runtime; checks run with whatever the skill under repair already requires.",
+      "path": "skills/skill-evolve",
+      "skillFile": "skills/skill-evolve/SKILL.md",
+      "raw": "https://raw.githubusercontent.com/gaohongkui/skills/main/skills/skill-evolve/SKILL.md",
+      "files": [
+        "SKILL.md",
+        "references/diagnosis.md",
+        "references/report-template.md"
       ]
     }
   ]

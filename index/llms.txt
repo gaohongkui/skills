@@ -9,3 +9,4 @@ Repository: https://github.com/gaohongkui/skills
 ## Meta
 
 - [handoff-writer](https://raw.githubusercontent.com/gaohongkui/skills/main/skills/handoff-writer/SKILL.md): Turn a long working session into a HANDOFF.md that a fresh agent can resume from without re-reading the transcript. Use when the user says "write a handoff", "hand off this session", "summarize context for a new chat", "wrap up", or when the context window is nearly full and the work is unfinished.
+- [skill-evolve](https://raw.githubusercontent.com/gaohongkui/skills/main/skills/skill-evolve/SKILL.md): Turn a prompt-only skill into a work system: a task map, real checks instead of prose promises, and a feedback loop that survives the next correction. Use when the user asks to improve, harden, refactor, or "self-iterate" an existing SKILL.md, says a skill is unreliable or keeps missing steps, or wants tooling, verification, or regression samples added to a skill.

@@ -15,7 +15,8 @@
       "description": "Meta skills for AI agents.",
       "strict": false,
       "skills": [
-        "./skills/handoff-writer"
+        "./skills/handoff-writer",
+        "./skills/skill-evolve"
       ]
     }
   ]
