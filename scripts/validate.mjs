@@ -105,12 +105,16 @@ function validateSkill(dirName) {
     if (description.length > 1024) {
       fail(id, `description is ${description.length} chars, max 1024`);
     }
-    if (description.length < 60) {
+    const minLength = /[\u4e00-\u9fff]/.test(description) ? 40 : 60;
+    if (description.length < minLength) {
       warn(id, `description is only ${description.length} chars — likely too thin to trigger`);
     }
-    const looksLikeTrigger = /use (this )?(skill )?(when|if|for|before|after)|when the user|when you|when working|use for/i.test(description);
+    // Chinese skills are first-class here: accept 当…时 / 适用于 / 使用时 as trigger phrases.
+    const looksLikeTrigger =
+      /use (this )?(skill )?(when|if|for|before|after)|when the user|when you|when working|use for/i.test(description) ||
+      /(?:当|在)[^。]{0,120}(?:时|情况下)|适用于|使用时|用于/.test(description);
     if (!looksLikeTrigger) {
-      warn(id, 'description has no explicit trigger phrase ("Use when …") — the skill may never fire');
+      warn(id, 'description has no explicit trigger phrase ("Use when …" or 当…时) — the skill may never fire');
     }
     if (/^(a|an|the)\s+(powerful|simple|flexible|comprehensive|seamless|modern)\b/i.test(description)) {
       warn(id, 'description opens with marketing language; lead with the capability');

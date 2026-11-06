@@ -47,22 +47,25 @@ Rules:
   Agents match on words, not intent.
 - No marketing adjectives ("powerful", "seamless", "blazing fast"). They consume the
   budget and match nothing.
-- Write it in English even when the skill handles Chinese content; the matcher and the
-  directory are English-first. Put locale details in the body.
+- **Write it in Chinese, then append one English trigger sentence.** The skills in this
+  repo are Chinese-first: their readers and their matching queries are Chinese. The
+  trailing English `Use when …` sentence covers English-speaking agents and the
+  skills.sh directory, which is English-first.
+- `name`, file paths, and code identifiers stay ASCII — the spec requires it.
 
 Good:
 
 ```yaml
 description: >-
-  Turn a session transcript into a HANDOFF.md so a new session can resume without
-  re-reading history. Use when the user asks to hand off, wrap up, summarize context
-  for a new chat, or says "write a handoff".
+  把一段长会话整理成 HANDOFF.md，让新会话不读历史就能接手。
+  当用户说「写个交接」「总结上下文给新会话」「收尾」，或上下文快满了而工作没做完时使用。
+  Use when the user asks to write a handoff, wrap up, or summarize context for a new session.
 ```
 
 Bad:
 
 ```yaml
-description: A powerful and flexible handoff utility for modern AI workflows.
+description: 一个强大而灵活的交接工具，适用于现代 AI 工作流。
 ```
 
 ## Body shape
@@ -85,7 +88,7 @@ Free-form map. Conventional keys used here:
 | `version` | semver string | Bumped on every behavioural change |
 | `category` | string | One of the categories above |
 | `tags` | string[] | 2–5 lowercase search terms |
-| `summary-zh` | string | Optional one-line Chinese summary, used in the `README.zh-CN.md` table. Omit it and the English first sentence is used. |
+| `summary-en` | string | Optional one-line English summary for the `README.md` table. Omit it and the Chinese `description` is used there. |
 
 Client-specific extensions go here too, namespaced: `metadata.cc-argument-hint`.
 

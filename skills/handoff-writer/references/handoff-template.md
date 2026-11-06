@@ -1,70 +1,68 @@
-# HANDOFF — <one-line title>
+# HANDOFF — <一句话标题>
 
 <!--
-Annotated template for handoff-writer. Delete every comment before shipping.
-Order matters: goal → state → next action → everything else.
-Budget: ~150 lines. If it is longer, you are transcribing the session instead of
-transferring state.
+handoff-writer 的带注释模板。交付前删掉所有注释。
+顺序是有意义的：目标 → 现状 → 下一步 → 其余。
+预算约 150 行。超过这个长度，说明你在复述会话，而不是转移状态。
 -->
 
-## Goal
+## 目标
 
-<!-- One sentence. Then the finish line, concretely observable. -->
+<!-- 一句话。然后写「做完」的可观测条件。 -->
 
-<What this work must achieve.> Done = <observable condition, e.g. "npm test green and
-the manual replay shows 1s/2s/4s/8s/16s gaps">.
+<这件事要达成什么。> 做完 = <可观测的条件，例如「npm test 全绿，且手动回放能看到
+1s/2s/4s/8s/16s 的间隔」>。
 
-## State
+## 现状
 
-<!-- What works, what does not, and the last thing you actually verified. -->
-<!-- Write "verified <command>: <result>" — not "should work". -->
+<!-- 什么能用、什么不能用、你最后真正验证过的是什么。 -->
+<!-- 写「验证了 <命令>：<结果>」，不要写「应该没问题」。 -->
 
-- Works: <subsystem> — verified `<command>` → <result>
-- Broken: <what and where, with file:line>
-- Not started: <what>
+- 能用：<子系统> —— 验证 `<命令>` → <结果>
+- 不能用：<什么，以及在哪>
+- 还没开始：<什么>
 
-## Next action
+## 下一步
 
-<!-- ≤5 numbered steps. Step 1 must be startable with no further decisions. -->
-<!-- Each step: command or file:line, plus what success looks like. -->
+<!-- ≤5 条编号步骤。第 1 条必须不需要再做决策就能开跑。 -->
+<!-- 每条写清：命令或文件:行，以及成功长什么样。 -->
 
-1. `<command>` — expected: <result>
-2. <edit this> at `<file:line>`
-3. `<command>` — expected: <result>
+1. `<命令>` —— 预期：<结果>
+2. <改这里>，位置 `<文件:行>`
+3. `<命令>` —— 预期：<结果>
 
-## Decisions
+## 决策
 
-<!-- Chosen option, rejected alternatives, the reason, and the date. -->
-<!-- The reason is the part a fresh agent cannot recover from the code. -->
+<!-- 选了什么、否了什么、为什么、哪天定的。 -->
+<!-- 「为什么」是新人从代码里推不出来的那部分。 -->
 
-- <date> — <decision>. Rejected <alternative> because <reason>.
+- <日期> —— <决策>。否掉 <另一个方案>，原因是 <理由>。
 
-## Traps
+## 坑
 
-<!-- Things that cost time and would cost it again: surprising behaviour, misleading
-     docs, order-dependent setup, flaky tests. -->
+<!-- 花过时间、还会再花时间的地方：反直觉的行为、误导人的文档、有顺序依赖的初始化、偶发失败的测试。 -->
 
-- <trap> — <what actually happens> — <what to do instead>
+- <坑> —— <实际是什么样> —— <该怎么办>
 
-## Map
+## 地图
 
-<!-- Only paths that matter, one line each, with why. Not a file listing. -->
+<!-- 只列真正相关的路径，一行一个，写清为什么重要。不是文件清单。 -->
 
-- `<path>` — <why it matters>
-- `<path>` — <why it matters>
+- `<路径>` —— <为什么重要>
+- `<路径>` —— <为什么重要>
 
-## Open questions
+## 待定
 
-<!-- Unresolved items and who/what can resolve them. Mark assumptions explicitly. -->
+<!-- 没解决的问题，以及谁能解决。假设要显式标注。 -->
 
-- <question> — blocked on <person / experiment / upstream issue>
-- Assumed <X>; unverified. Verify by <how>.
+- <问题> —— 卡在 <人 / 实验 / 上游 issue>
+- 假设 <X>；未验证。验证方式：<怎么做>。
 
-## Environment
+## 环境
 
-<!-- Optional. Version facts and setup steps that are not in the README. -->
-<!-- Credentials by NAME and location only — never by value. -->
+<!-- 可选。README 里没有的版本事实和初始化步骤。 -->
+<!-- 凭据只写名字和位置，不写值。 -->
 
-- Runtime: <versions that matter>
-- Setup: `<command>`
-- Credentials: <name> in <location>
+- 运行时：<会影响结果的版本>
+- 初始化：`<命令>`
+- 凭据：<名字> 在 <位置>

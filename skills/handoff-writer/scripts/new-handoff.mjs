@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * Scaffold a HANDOFF.md skeleton with the section order handoff-writer enforces.
+ * 按 handoff-writer 要求的段落顺序，生成 HANDOFF.md 骨架。
  *
- *   node scripts/new-handoff.mjs --title "Fix ingest retry loop"
+ *   node scripts/new-handoff.mjs --title "修复 ingest 重试循环"
  *   node scripts/new-handoff.mjs --title "..." --out docs/HANDOFF.md --force
  *
- * Refuses to overwrite an existing file unless --force is passed.
- * No network access, no dependencies.
+ * 默认拒绝覆盖已有文件，除非显式传 --force。
+ * 无网络请求，无第三方依赖。
  */
 
 import fs from 'node:fs';
@@ -19,68 +19,69 @@ function flag(name, fallback) {
   if (index === -1) return fallback;
   const value = args[index + 1];
   if (!value || value.startsWith('--')) {
-    console.error(`✖ ${name} needs a value`);
+    console.error(`✖ ${name} 需要一个值`);
     process.exit(2);
   }
   return value;
 }
 
 if (args.includes('--help') || args.includes('-h')) {
-  console.log('usage: new-handoff.mjs [--title "text"] [--out HANDOFF.md] [--force]');
+  console.log('用法: new-handoff.mjs [--title "标题"] [--out HANDOFF.md] [--force]');
   process.exit(0);
 }
 
-const title = flag('--title', 'Untitled work');
+const title = flag('--title', '未命名的工作');
 const out = path.resolve(process.cwd(), flag('--out', 'HANDOFF.md'));
 const force = args.includes('--force');
 const today = new Date().toISOString().slice(0, 10);
 
 if (fs.existsSync(out) && !force) {
-  console.error(`✖ ${out} already exists — pass --force to overwrite, or choose another --out`);
+  console.error(`✖ ${out} 已存在 —— 加 --force 覆盖，或换一个 --out`);
   process.exit(1);
 }
 
 const template = `# HANDOFF — ${title}
 
-## Goal
+## 目标
 
-<One sentence: what this work must achieve.> Done = <observable finish line>.
+<一句话：这件事要达成什么。> 做完 = <可观测的条件>。
 
-## State
+## 现状
 
-- Works: <subsystem> — verified \`<command>\` → <result>
-- Broken: <what and where, with file:line>
-- Not started: <what>
+- 能用：<子系统> —— 验证 \`<命令>\` → <结果>
+- 不能用：<什么，以及在哪>
+- 还没开始：<什么>
 
-## Next action
+## 下一步
 
-1. \`<command>\` — expected: <result>
-2. <edit this> at \`<file:line>\`
-3. \`<command>\` — expected: <result>
+1. \`<命令>\` —— 预期：<结果>
+2. <改这里>，位置 \`<文件:行>\`
+3. \`<命令>\` —— 预期：<结果>
 
-## Decisions
+## 决策
 
-- ${today} — <decision>. Rejected <alternative> because <reason>.
+- ${today} —— <决策>。否掉 <另一个方案>，原因是 <理由>。
 
-## Traps
+## 坑
 
-- <trap> — <what actually happens> — <what to do instead>
+- <坑> —— <实际是什么样> —— <该怎么办>
 
-## Map
+## 地图
 
-- \`<path>\` — <why it matters>
+- \`<路径>\` —— <为什么重要>
 
-## Open questions
+## 待定
 
-- <question> — blocked on <person / experiment / upstream issue>
+- <问题> —— 卡在 <人 / 实验 / 上游 issue>
 `;
 
 fs.mkdirSync(path.dirname(out), { recursive: true });
 fs.writeFileSync(out, template);
 
 const lines = template.split('\n').length;
-console.log(`✔ ${path.relative(process.cwd(), out) || out} (${lines} lines)`);
+const shown = path.relative(process.cwd(), out);
+console.log(`✔ ${shown.startsWith('..') ? out : shown || out}（${lines} 行）`);
 console.log('');
-console.log('Now fill in, in this order: Goal, State, Next action.');
-console.log('Every other section may stay empty — but not these three.');
-console.log('Before sharing: no secrets, no personal data, no internal-only links.');
+console.log('按这个顺序填：目标、现状、下一步。');
+console.log('其余段落可以空着，但这三段不行。');
+console.log('分享前检查：无密钥、无个人信息、无内部链接。');

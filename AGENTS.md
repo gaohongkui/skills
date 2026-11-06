@@ -112,6 +112,9 @@ Full procedure: [`docs/publishing-checklist.md`](docs/publishing-checklist.md).
 
 ## Style for skills
 
+- **Bodies are written in Chinese.** `description` leads in Chinese and ends with one
+  English trigger sentence (skills.sh and English-speaking agents match on it).
+  `name`, paths, and code stay ASCII.
 - Imperative, second person, no marketing voice.
 - Keep `SKILL.md` under ~300 lines; push detail into `references/` and load it only
   when needed (progressive disclosure).

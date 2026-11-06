@@ -100,7 +100,7 @@ function collect() {
       name,
       description,
       summary: firstSentence(description),
-      summaryZh: meta['summary-zh'] ? fold(meta['summary-zh']) : '',
+      summaryEn: meta['summary-en'] ? fold(meta['summary-en']) : '',
       version: String(meta.version ?? '0.0.0'),
       category: String(meta.category ?? 'uncategorised'),
       tags: Array.isArray(meta.tags) ? meta.tags.map(String) : [],
@@ -115,7 +115,8 @@ function collect() {
 }
 
 function firstSentence(text) {
-  const match = text.match(/^(.+?[.!?])(?:\s|$)/);
+  // ASCII and CJK sentence terminators; Chinese text ends on 。！？
+  const match = text.match(/^(.+?[.!?。！？])(?:\s|$)/);
   const sentence = (match ? match[1] : text).trim();
   return sentence.length > 160 ? `${sentence.slice(0, 157).trimEnd()}…` : sentence;
 }
@@ -184,7 +185,8 @@ function buildReadmeTable(skills, variant) {
   lines.push(`| ${variant.columns.join(' | ')} |`);
   lines.push(`| ${variant.columns.map(() => '---').join(' | ')} |`);
   for (const skill of skills) {
-    const cell = (variant.locale === 'zh-CN' && skill.summaryZh ? skill.summaryZh : skill.summary).replace(/\|/g, '\\|');
+    // SKILL.md is written in Chinese; the English page falls back to a `summary-en`
+    const cell = (variant.locale === 'zh-CN' ? skill.summary : skill.summaryEn || skill.summary).replace(/\|/g, '\\|');
     lines.push(`| [\`${skill.name}\`](skills/${skill.name}/SKILL.md) | ${cell} | \`${skill.category}\` | ${skill.version} |`);
   }
 

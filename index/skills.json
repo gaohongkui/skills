@@ -7,7 +7,7 @@
   "skills": [
     {
       "name": "handoff-writer",
-      "description": "Turn a long working session into a HANDOFF.md that a fresh agent can resume from without re-reading the transcript. Use when the user says \"write a handoff\", \"hand off this session\", \"summarize context for a new chat\", \"wrap up\", or when the context window is nearly full and the work is unfinished.",
+      "description": "把一段长会话整理成 HANDOFF.md，让新会话不读历史就能接手。 当用户说「写个交接」「hand off」「总结上下文给新会话」「收尾」， 或上下文快满了而工作还没做完时使用。 Use when the user asks to write a handoff, wrap up, or summarize context for a new session.",
       "version": "0.1.0",
       "category": "meta",
       "tags": [
@@ -17,7 +17,7 @@
         "resume"
       ],
       "license": "MIT",
-      "compatibility": "Requires Node.js 18+ for the optional scaffold script; the rest is plain Markdown.",
+      "compatibility": "可选的脚手架脚本需要 Node.js 18+，其余只需读写 Markdown。",
       "path": "skills/handoff-writer",
       "skillFile": "skills/handoff-writer/SKILL.md",
       "raw": "https://raw.githubusercontent.com/gaohongkui/skills/main/skills/handoff-writer/SKILL.md",
@@ -28,8 +28,8 @@
       ]
     },
     {
-      "name": "skill-evolve",
-      "description": "Turn a prompt-only skill into a work system: a task map, real checks instead of prose promises, and a feedback loop that survives the next correction. Use when the user asks to improve, harden, refactor, or \"self-iterate\" an existing SKILL.md, says a skill is unreliable or keeps missing steps, or wants tooling, verification, or regression samples added to a skill.",
+      "name": "skill-rsi",
+      "description": "把一个只会「说」的 skill 改造成有工作地图、有真实检查、能从反馈里持续改进的工作系统。 当用户要求改造、加固、重构或「自迭代」某个 SKILL.md，或抱怨某个 skill 不稳定、 总是漏步骤、产出不一致时使用。 Use when asked to improve, harden, refactor, or self-iterate an existing SKILL.md.",
       "version": "0.1.0",
       "category": "meta",
       "tags": [
@@ -40,10 +40,10 @@
         "feedback-loop"
       ],
       "license": "MIT",
-      "compatibility": "Works on plain files. Needs no runtime; checks run with whatever the skill under repair already requires.",
-      "path": "skills/skill-evolve",
-      "skillFile": "skills/skill-evolve/SKILL.md",
-      "raw": "https://raw.githubusercontent.com/gaohongkui/skills/main/skills/skill-evolve/SKILL.md",
+      "compatibility": "只需要读写文件，无运行时依赖；检查命令用 skill 本身已有的环境执行。",
+      "path": "skills/skill-rsi",
+      "skillFile": "skills/skill-rsi/SKILL.md",
+      "raw": "https://raw.githubusercontent.com/gaohongkui/skills/main/skills/skill-rsi/SKILL.md",
       "files": [
         "SKILL.md",
         "references/diagnosis.md",
